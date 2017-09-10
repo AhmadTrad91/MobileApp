@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}My App - Login{% endblock %}
+{% block content %}
+	{% if message %}
+	<div class="alert alert-danger">{{ message }}</div>
+	{% endif %}
+	<div class="row justify-content-center">
+		<div class="col-3 align-self-center">
+			<form action="" method="POST">
+			{% csrf_token %}
+				<label for="username" class="control-label">Username</label>
+				<input type="text" name="username" id="username" value="" class="form-control">
+				
+				<label for="password" class="control-label">Password</label>
+				<input type="password" name="password" id="password" value="" class="form-control">
+				</br>
+				<button type="submit" class="btn btn-primary">Login</button>
+				<button type="reset" class="btn btn-default">Reset</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

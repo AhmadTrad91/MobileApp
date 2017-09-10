@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Task Management System{% endblock %}
+
+{% block content %}
+	<div class="row justify-content-end">
+		<div class="col-sm-3 align-self-end">
+
+			{% for task in tasks %}
+				<div class="list-group">
+			  		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start"  data-toggle="list" role="tab" >
+				    <div class="d-flex w-100 justify-content-between">
+					    <h5 class="mb-1">{{ task.title }}</h5>
+					    <small>{{ task.creationdate }}</small>
+				    </div>
+				  	<p class="mb-1">{{ task.description }}</p>
+				    <small>{{ task.owner }}</small>
+				  	</a>
+				  	<p class="mb-1">Last update: {{ task.updatedate }}</p>
+				    <small>Deadline: {{ task.deadline }}</small>
+				  	</a>
+				  	</br>
+				    <div class="progress">
+						Task Progress: &nbsp; <div class="progress-bar" role="progressbar" style="width: {{ task.progress }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}% completed</div>
+					</div>
+			    </div>
+			    </br>
+			    </br> 	
+			   {% endfor %}
+		</div>
+	</div>
+
+
+		<div class="row justify-content-center">
+		<div class="col-sm-3 align-self-center">
+
+			{% for subtask in subtasks %}
+				<div class="list-group">
+			  		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start"  data-toggle="list" role="tab" >
+				    <div class="d-flex w-100 justify-content-between">
+					    <h5 class="mb-1">{{ subtask.title }}</h5>
+					    <small>{{ subtask.creationdate }}</small>
+				    </div>
+				  	<p class="mb-1">{{ subtask.description }}</p>
+				    <small>{{ subtask.owner }}</small>
+				  	</a>
+				  	<p class="mb-1">Last update: {{ subtask.updatedate }}</p>
+				    <small>Deadline: {{ subtask.deadline }}</small>
+				  	</a>
+				  	</br>
+				    <div class="progress">
+						Task Progress: &nbsp; <div class="progress-bar" role="progressbar" style="width: {{ task.progress }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}% completed</div>
+					</div>
+			    </div>
+			    </br>
+			    </br> 	
+			   {% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}
